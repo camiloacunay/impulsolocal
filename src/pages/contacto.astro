@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { SITE } from '@config/site';
-import { Mail, MessageCircle, Send } from 'lucide-react';
+import { Phone, MessageCircle, Send } from 'lucide-react';
 
 const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
   'Hola, quiero cotizar una página web profesional con Google Ads'
@@ -39,12 +39,12 @@ const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
           </a>
 
           <a
-            href={`mailto:${SITE.email}`}
+            href="tel:+56991351505"
             class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-7 py-4 font-black text-white transition hover:bg-white/10"
           >
-            <Mail className="w-5 h-5" />
-            Enviar correo
-          </a>
+            <Phone className="w-5 h-5" />
+            Llamar directamente
+         </a>
         </div>
       </div>
 
