@@ -2,32 +2,138 @@
 import BaseLayout from '@layouts/BaseLayout.astro';
 import { SITE } from '@config/site';
 import { Mail, MessageCircle, Send } from 'lucide-react';
-const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hola, quiero cotizar una página web profesional con Google Ads')}`;
+
+const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
+  'Hola, quiero cotizar una página web profesional con Google Ads'
+)}`;
 ---
-<BaseLayout title="Contacto | ImpulsoLocal" description="Cotiza tu página web profesional y campaña inicial de Google Ads.">
+
+<BaseLayout
+  title="Contacto | Impulso Web Local"
+  description="Cotiza tu página web profesional y campaña inicial de Google Ads para conseguir más clientes desde Google."
+>
   <section class="bg-slate-950 py-24 text-white">
     <div class="container mx-auto grid gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8 lg:items-center">
       <div>
-        <span class="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">Contacto</span>
-        <h1 class="mt-4 text-5xl font-black tracking-tight sm:text-6xl">Cuéntame qué servicio vendes y en qué ciudad quieres captar clientes.</h1>
-        <p class="mt-6 text-xl text-slate-300">Te puedo orientar con el tipo de página más conveniente y una estrategia inicial de Google Ads.</p>
+        <span class="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">
+          Contacto
+        </span>
+
+        <h1 class="mt-4 text-5xl font-black tracking-tight sm:text-6xl">
+          Cuéntame qué servicio vendes y en qué ciudad quieres captar clientes.
+        </h1>
+
+        <p class="mt-6 text-xl text-slate-300">
+          Te puedo orientar con el tipo de página más conveniente y una estrategia inicial de Google Ads para atraer más consultas por WhatsApp o llamada.
+        </p>
+
         <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-          <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-7 py-4 font-black text-white hover:bg-green-700"><MessageCircle className="w-5 h-5" /> Escribir por WhatsApp</a>
-          <a href={`mailto:${SITE.email}`} class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-7 py-4 font-black text-white hover:bg-white/10"><Mail className="w-5 h-5" /> Enviar correo</a>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-7 py-4 font-black text-white transition hover:bg-green-700"
+          >
+            <MessageCircle className="w-5 h-5" />
+            Escribir por WhatsApp
+          </a>
+
+          <a
+            href={`mailto:${SITE.email}`}
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-7 py-4 font-black text-white transition hover:bg-white/10"
+          >
+            <Mail className="w-5 h-5" />
+            Enviar correo
+          </a>
         </div>
       </div>
 
       <div class="rounded-[2rem] border border-white/10 bg-white/10 p-8 backdrop-blur">
-        <h2 class="text-2xl font-black">Formulario referencial</h2>
-        <p class="mt-2 text-slate-300">Puedes conectar este formulario a Formspree, Netlify Forms o reemplazarlo por WhatsApp.</p>
-        <form class="mt-8 space-y-4" action="https://formspree.io/f/your-id" method="POST">
-          <input class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="nombre" placeholder="Nombre" />
-          <input class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="telefono" placeholder="WhatsApp" />
-          <input class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="rubro" placeholder="Rubro y ciudad" />
-          <textarea class="min-h-32 w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="mensaje" placeholder="Cuéntame qué necesitas"></textarea>
-          <button class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 font-black text-slate-950 hover:bg-cyan-50" type="submit">Enviar solicitud <Send className="w-5 h-5" /></button>
+        <h2 class="text-2xl font-black">
+          Solicita una cotización
+        </h2>
+
+        <p class="mt-2 text-slate-300">
+          Completa tus datos y se abrirá WhatsApp con tu solicitud lista para enviar.
+        </p>
+
+        <form
+          id="contactForm"
+          data-whatsapp={SITE.whatsapp}
+          class="mt-8 space-y-4"
+        >
+          <input
+            id="nombre"
+            class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300"
+            name="nombre"
+            type="text"
+            placeholder="Nombre"
+            required
+          />
+
+          <input
+            id="telefono"
+            class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300"
+            name="telefono"
+            type="text"
+            placeholder="WhatsApp"
+            required
+          />
+
+          <input
+            id="rubro"
+            class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300"
+            name="rubro"
+            type="text"
+            placeholder="Rubro y ciudad"
+            required
+          />
+
+          <textarea
+            id="mensaje"
+            class="min-h-32 w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300"
+            name="mensaje"
+            placeholder="Cuéntame qué necesitas"
+            required
+          ></textarea>
+
+          <button
+            class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 font-black text-slate-950 transition hover:bg-cyan-50"
+            type="submit"
+          >
+            Enviar por WhatsApp
+            <Send className="w-5 h-5" />
+          </button>
         </form>
       </div>
     </div>
   </section>
+
+  <script>
+    const form = document.getElementById('contactForm');
+
+    form?.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const whatsappNumber = form.getAttribute('data-whatsapp');
+
+      const nombre = document.getElementById('nombre');
+      const telefono = document.getElementById('telefono');
+      const rubro = document.getElementById('rubro');
+      const mensaje = document.getElementById('mensaje');
+
+      const texto = [
+        'Hola, quiero cotizar una página web profesional con Google Ads.',
+        '',
+        `Nombre: ${nombre?.value || ''}`,
+        `WhatsApp: ${telefono?.value || ''}`,
+        `Rubro y ciudad: ${rubro?.value || ''}`,
+        `Mensaje: ${mensaje?.value || ''}`,
+      ].join('\n');
+
+      const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(texto)}`;
+
+      window.open(url, '_blank');
+    });
+  </script>
 </BaseLayout>
