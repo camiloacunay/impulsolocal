@@ -2,10 +2,10 @@
 export const SITE = {
   title: 'ImpulsoLocal | Páginas web profesionales + Google Ads',
   description: 'Creamos páginas web profesionales para servicios locales y configuramos Google Ads para captar más consultas por WhatsApp o llamada.',
-  url: 'https://tudominio.cl',
-  author: 'ImpulsoLocal',
-  whatsapp: '56900000000',
-  email: 'contacto@tudominio.cl',
+  url: 'https://impulsoweblocal.cl',
+  domain: 'impulsoweblocal.cl',
+  email: 'contacto@impulsoweblocal.cl',
+  whatsapp: '56991351505',
 } as const;
 
 export const NAVIGATION = [
