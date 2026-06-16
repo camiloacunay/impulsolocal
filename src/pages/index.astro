@@ -28,6 +28,7 @@ const realClients = [
     text: 'Sitio enfocado en urgencias, aperturas, vehículos, llaves con chip y zonas de atención en la V Región.',
   },
 ];
+const withBase = (path: string) => `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
 ---
 
 <BaseLayout title="ImpulsoLocal | Páginas web profesionales + Google Ads" description="Creamos páginas web profesionales y configuramos Google Ads para negocios locales que quieren recibir más consultas por WhatsApp o llamada.">
@@ -104,33 +105,95 @@ const realClients = [
     </div>
   </section>
 
-  <section class="bg-slate-50 py-24">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-        <div>
-          <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-black text-blue-800"><Star className="w-4 h-4" /> Clientes reales</span>
-          <h2 class="mt-6 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Páginas que ya están usando negocios de servicios.</h2>
-          <p class="mt-6 text-lg leading-8 text-slate-600">Además de demos, mostramos trabajos reales publicados. Cada página tiene identidad propia, mensajes adaptados al rubro y llamados claros a WhatsApp o llamada.</p>
-          <a href="/clientes" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-7 py-4 text-base font-black text-white transition hover:bg-blue-900">Ver clientes reales <ArrowRight className="w-5 h-5" /></a>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2">
-          {realClients.map((client) => (
-            <a href={client.href} target="_blank" rel="noopener" class="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-2xl">
-              <div class="relative h-56 overflow-hidden bg-slate-100">
-                <img src={client.image} alt={`Vista previa de ${client.name}`} class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                <span class="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-800 shadow">{client.type}</span>
-              </div>
-              <div class="p-6">
-                <h3 class="text-2xl font-black text-slate-950">{client.name}</h3>
-                <p class="mt-3 leading-7 text-slate-600">{client.text}</p>
-                <span class="mt-5 inline-flex items-center gap-2 font-black text-blue-700">Abrir página <ExternalLink className="w-4 h-4 transition group-hover:translate-x-1" /></span>
-              </div>
-            </a>
-          ))}
-        </div>
+<section class="bg-slate-50 py-24">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-black text-blue-800">
+          <Star className="w-4 h-4" /> Clientes reales
+        </span>
+
+        <h2 class="mt-6 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">
+          Páginas que ya están usando negocios de servicios.
+        </h2>
+
+        <p class="mt-6 text-lg leading-8 text-slate-600">
+          Además de demos, mostramos trabajos reales publicados. Cada página tiene identidad propia,
+          mensajes adaptados al rubro y llamados claros a WhatsApp o llamada.
+        </p>
+
+        <a
+          href={withBase('clientes/')}
+          class="mt-8 inline-flex items-center gap-2 rounded-xl bg-slate-950 px-7 py-4 text-base font-black text-white transition hover:bg-blue-900"
+        >
+          Ver clientes reales <ArrowRight className="w-5 h-5" />
+        </a>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <a
+          href={withBase('clientes/servigasfiter/')}
+          class="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-2xl"
+        >
+          <div class="relative h-56 overflow-hidden bg-slate-100">
+            <iframe
+              src={withBase('clientes/servigasfiter/')}
+              title="Vista previa de ServiGasfíter"
+              loading="lazy"
+              class="pointer-events-none absolute left-0 top-0 h-[180%] w-[180%] origin-top-left scale-[0.56] border-0 bg-white"
+            ></iframe>
+
+            <span class="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-800 shadow">
+              Gasfitería a domicilio
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-2xl font-black text-slate-950">ServiGasfíter</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              Web profesional para fugas, destapes, calefont y servicios sanitarios con contacto directo por WhatsApp.
+            </p>
+
+            <span class="mt-5 inline-flex items-center gap-2 font-black text-blue-700">
+              Abrir página <ExternalLink className="w-4 h-4 transition group-hover:translate-x-1" />
+            </span>
+          </div>
+        </a>
+
+        <a
+          href={withBase('clientes/fullcerrajeria24hrs/')}
+          class="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-2xl"
+        >
+          <div class="relative h-56 overflow-hidden bg-slate-100">
+            <iframe
+              src={withBase('clientes/fullcerrajeria24hrs/')}
+              title="Vista previa de FullCerrajería 24Hrs"
+              loading="lazy"
+              class="pointer-events-none absolute left-0 top-0 h-[180%] w-[180%] origin-top-left scale-[0.56] border-0 bg-white"
+            ></iframe>
+
+            <span class="absolute left-5 top-5 rounded-full bg-white/95 px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-800 shadow">
+              Cerrajería 24/7
+            </span>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-2xl font-black text-slate-950">FullCerrajería 24Hrs</h3>
+
+            <p class="mt-3 leading-7 text-slate-600">
+              Sitio enfocado en urgencias, aperturas, vehículos, llaves con chip y zonas de atención en la V Región.
+            </p>
+
+            <span class="mt-5 inline-flex items-center gap-2 font-black text-blue-700">
+              Abrir página <ExternalLink className="w-4 h-4 transition group-hover:translate-x-1" />
+            </span>
+          </div>
+        </a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 
   <section class="bg-slate-50 py-24">
