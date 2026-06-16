@@ -1,0 +1,44 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Bell, CalendarCheck, CheckCircle2, Clock, LayoutDashboard, MapPin, Plus, UserRound } from 'lucide-react';
+---
+<BaseLayout title="Demo aplicación web agenda | ImpulsoLocal" description="Demo de aplicación web para agenda de servicios.">
+  <section class="min-h-screen bg-slate-100 py-12">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="overflow-hidden rounded-[2rem] bg-white shadow-2xl ring-1 ring-slate-200">
+        <div class="grid min-h-[720px] lg:grid-cols-[280px_1fr]">
+          <aside class="bg-slate-950 p-6 text-white">
+            <div class="flex items-center gap-3"><div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500"><LayoutDashboard className="w-7 h-7" /></div><b class="text-xl">AgendaPro</b></div>
+            <nav class="mt-10 space-y-3 text-sm font-bold text-slate-300"><p class="rounded-xl bg-white/10 px-4 py-3 text-white">Panel</p><p class="px-4 py-3">Cotizaciones</p><p class="px-4 py-3">Clientes</p><p class="px-4 py-3">Servicios</p></nav>
+          </aside>
+          <main class="p-6 md:p-10">
+            <div class="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
+              <div>
+                <span class="text-sm font-black uppercase tracking-[0.25em] text-cyan-700">Aplicación web</span>
+                <h1 class="mt-2 text-4xl font-black text-slate-950">Agenda de servicios</h1>
+              </div>
+              <button class="inline-flex items-center gap-2 rounded-xl bg-slate-950 px-5 py-3 font-black text-white"><Plus className="w-5 h-5" /> Nueva visita</button>
+            </div>
+            <div class="mt-8 grid gap-5 md:grid-cols-4">
+              <div class="rounded-2xl bg-cyan-50 p-5"><CalendarCheck className="w-7 h-7 text-cyan-700" /><p class="mt-4 text-3xl font-black">18</p><p class="text-sm text-slate-600">Visitas agendadas</p></div>
+              <div class="rounded-2xl bg-emerald-50 p-5"><CheckCircle2 className="w-7 h-7 text-emerald-700" /><p class="mt-4 text-3xl font-black">12</p><p class="text-sm text-slate-600">Completadas</p></div>
+              <div class="rounded-2xl bg-amber-50 p-5"><Clock className="w-7 h-7 text-amber-700" /><p class="mt-4 text-3xl font-black">6</p><p class="text-sm text-slate-600">Pendientes</p></div>
+              <div class="rounded-2xl bg-blue-50 p-5"><Bell className="w-7 h-7 text-blue-700" /><p class="mt-4 text-3xl font-black">4</p><p class="text-sm text-slate-600">Urgencias</p></div>
+            </div>
+            <div class="mt-8 rounded-3xl border border-slate-200 bg-white p-6">
+              <h2 class="text-xl font-black">Próximas visitas</h2>
+              <div class="mt-6 space-y-4">
+                {['Fuga de agua · Valparaíso', 'Instalación eléctrica · Rancagua', 'Apertura de puerta · Chillán'].map((item) => (
+                  <div class="flex flex-col gap-3 rounded-2xl bg-slate-50 p-4 md:flex-row md:items-center md:justify-between">
+                    <div class="flex items-center gap-3"><UserRound className="w-5 h-5 text-slate-500" /><b>{item}</b></div>
+                    <div class="flex items-center gap-2 text-sm text-slate-500"><MapPin className="w-4 h-4" /> Ver ubicación</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

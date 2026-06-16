@@ -1,0 +1,33 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { SITE } from '@config/site';
+import { Mail, MessageCircle, Send } from 'lucide-react';
+const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hola, quiero cotizar una página web profesional con Google Ads')}`;
+---
+<BaseLayout title="Contacto | ImpulsoLocal" description="Cotiza tu página web profesional y campaña inicial de Google Ads.">
+  <section class="bg-slate-950 py-24 text-white">
+    <div class="container mx-auto grid gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8 lg:items-center">
+      <div>
+        <span class="text-sm font-black uppercase tracking-[0.25em] text-cyan-300">Contacto</span>
+        <h1 class="mt-4 text-5xl font-black tracking-tight sm:text-6xl">Cuéntame qué servicio vendes y en qué ciudad quieres captar clientes.</h1>
+        <p class="mt-6 text-xl text-slate-300">Te puedo orientar con el tipo de página más conveniente y una estrategia inicial de Google Ads.</p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-xl bg-green-600 px-7 py-4 font-black text-white hover:bg-green-700"><MessageCircle className="w-5 h-5" /> Escribir por WhatsApp</a>
+          <a href={`mailto:${SITE.email}`} class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-7 py-4 font-black text-white hover:bg-white/10"><Mail className="w-5 h-5" /> Enviar correo</a>
+        </div>
+      </div>
+
+      <div class="rounded-[2rem] border border-white/10 bg-white/10 p-8 backdrop-blur">
+        <h2 class="text-2xl font-black">Formulario referencial</h2>
+        <p class="mt-2 text-slate-300">Puedes conectar este formulario a Formspree, Netlify Forms o reemplazarlo por WhatsApp.</p>
+        <form class="mt-8 space-y-4" action="https://formspree.io/f/your-id" method="POST">
+          <input class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="nombre" placeholder="Nombre" />
+          <input class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="telefono" placeholder="WhatsApp" />
+          <input class="w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="rubro" placeholder="Rubro y ciudad" />
+          <textarea class="min-h-32 w-full rounded-xl border border-white/10 bg-white/95 px-4 py-3 text-slate-950 outline-none focus:ring-2 focus:ring-cyan-300" name="mensaje" placeholder="Cuéntame qué necesitas"></textarea>
+          <button class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 font-black text-slate-950 hover:bg-cyan-50" type="submit">Enviar solicitud <Send className="w-5 h-5" /></button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

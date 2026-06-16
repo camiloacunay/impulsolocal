@@ -1,0 +1,45 @@
+import * as Dialog from '@radix-ui/react-dialog';
+import { Menu, X } from 'lucide-react';
+import { NAVIGATION, SITE } from '../../config/site';
+
+export default function MobileMenu() {
+  const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hola, quiero cotizar una página web profesional con Google Ads')}`;
+
+  return (
+    <Dialog.Root>
+      <Dialog.Trigger asChild>
+        <button className="lg:hidden p-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors" aria-label="Abrir menú">
+          <Menu className="h-6 w-6" />
+        </button>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50 lg:hidden" />
+        <Dialog.Content className="fixed top-0 left-0 right-0 bg-white border-b border-slate-200 z-50 lg:hidden max-h-[85vh] overflow-y-auto">
+          <Dialog.Title className="sr-only">Menú de navegación</Dialog.Title>
+          <Dialog.Description className="sr-only">Links principales del sitio</Dialog.Description>
+          <div className="container mx-auto px-4 py-6 space-y-2">
+            {NAVIGATION.map((item) => (
+              <Dialog.Close asChild key={item.href}>
+                <a href={item.href} className="block px-4 py-3 text-base font-semibold text-slate-700 hover:text-blue-700 hover:bg-blue-50 rounded-lg transition-all">
+                  {item.name}
+                </a>
+              </Dialog.Close>
+            ))}
+            <div className="pt-4">
+              <Dialog.Close asChild>
+                <a href={whatsappUrl} target="_blank" rel="noopener" className="block text-center px-6 py-3 text-sm font-bold text-white bg-linear-to-r from-blue-700 to-teal-600 hover:from-blue-800 hover:to-teal-700 rounded-xl shadow-md transition-all">
+                  Cotizar por WhatsApp
+                </a>
+              </Dialog.Close>
+            </div>
+          </div>
+          <Dialog.Close asChild>
+            <button className="absolute top-4 right-4 p-2 text-slate-700 hover:bg-slate-100 rounded-lg transition-colors" aria-label="Cerrar menú">
+              <X className="h-6 w-6" />
+            </button>
+          </Dialog.Close>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  );
+}

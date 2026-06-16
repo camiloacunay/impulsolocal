@@ -1,0 +1,75 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { SITE } from '@config/site';
+import { ArrowRight, BarChart3, Building2, CheckCircle2, FileText, Globe2, MessageCircle, Search, Target, Wrench } from 'lucide-react';
+const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hola, quiero cotizar servicios web y Google Ads')}`;
+const services = [
+  { icon: Globe2, title: 'Creación de páginas web profesionales', text: 'Webs rápidas, claras y enfocadas en conversión para servicios locales. Incluye estructura de servicios, zonas de atención, preguntas frecuentes y llamadas a la acción.' },
+  { icon: MessageCircle, title: 'Botones de WhatsApp y llamada', text: 'Contacto directo visible en computador y celular para que los visitantes puedan escribir o llamar sin buscar datos.' },
+  { icon: Search, title: 'Configuración inicial de Google Ads', text: 'Campañas pensadas para búsquedas con intención de compra, segmentadas por ciudad o comuna.' },
+  { icon: Target, title: 'Palabras clave y anuncios', text: 'Definimos búsquedas como “gasfíter urgente”, “electricista en Rancagua” o “cerrajero 24 horas”.' },
+  { icon: BarChart3, title: 'Medición y revisión de resultados', text: 'Revisión inicial de clics, consultas y comportamiento para saber qué mejorar.' },
+  { icon: Building2, title: 'Demos por rubro', text: 'Plantillas adaptadas para gasfitería, electricidad, cerrajería, plagas, climatización, tiendas, portfolios y más.' },
+];
+---
+<BaseLayout title="Servicios | ImpulsoLocal" description="Servicios de creación web profesional, Google Ads local y optimización para captar clientes.">
+  <section class="bg-slate-950 py-24 text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-200"><Wrench className="w-4 h-4" /> Servicios</span>
+        <h1 class="mt-8 text-5xl font-black tracking-tight sm:text-6xl">Todo lo necesario para pasar de publicar en Facebook a captar clientes desde Google.</h1>
+        <p class="mt-6 text-xl leading-8 text-slate-300">Creamos una presencia digital profesional y configuramos la publicidad para que tu negocio aparezca cuando una persona busca contratar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((service) => {
+          const Icon = service.icon;
+          return (
+            <article class="group rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-blue-700 to-teal-600 text-white shadow-lg group-hover:scale-105 transition"><Icon className="w-7 h-7" /></div>
+              <h2 class="mt-7 text-2xl font-black text-slate-950">{service.title}</h2>
+              <p class="mt-4 text-slate-600 leading-7">{service.text}</p>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-10 lg:grid-cols-3">
+        <div>
+          <span class="text-sm font-black uppercase tracking-[0.25em] text-blue-700">Cómo trabajo</span>
+          <h2 class="mt-4 text-4xl font-black text-slate-950">Una metodología simple para negocios que necesitan clientes.</h2>
+        </div>
+        <div class="lg:col-span-2 grid gap-6 md:grid-cols-3">
+          <div class="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200"><FileText className="w-8 h-8 text-blue-700" /><h3 class="mt-5 font-black text-xl">Diagnóstico</h3><p class="mt-3 text-sm text-slate-600">Reviso rubro, ciudad, competencia y forma actual de captar clientes.</p></div>
+          <div class="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200"><Globe2 className="w-8 h-8 text-teal-700" /><h3 class="mt-5 font-black text-xl">Implementación</h3><p class="mt-3 text-sm text-slate-600">Creo la web profesional y preparo la estructura para publicidad.</p></div>
+          <div class="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-slate-200"><CheckCircle2 className="w-8 h-8 text-emerald-700" /><h3 class="mt-5 font-black text-xl">Activación</h3><p class="mt-3 text-sm text-slate-600">Configuro Google Ads y reviso los primeros resultados.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-[2rem] bg-linear-to-r from-blue-700 to-teal-600 p-10 text-white md:p-14">
+        <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 class="text-4xl font-black">¿Quieres mostrar una web profesional antes de pagar publicidad?</h2>
+            <p class="mt-4 text-blue-50">Revisa las demos por tipo de sitio y rubro. Cada una tiene una estética distinta para mostrar opciones reales a tus clientes.</p>
+          </div>
+          <div class="flex flex-col gap-4 sm:flex-row lg:justify-end">
+            <a href="/demos" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 font-black text-slate-950 hover:bg-cyan-50">Ver demos <ArrowRight className="w-5 h-5" /></a>
+            <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-7 py-4 font-black text-white hover:bg-white/10">Cotizar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

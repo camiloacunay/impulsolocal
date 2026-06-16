@@ -1,0 +1,45 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { ArrowRight, BriefcaseBusiness, FileText, LayoutDashboard, Newspaper, PanelsTopLeft, ShoppingCart, Smartphone, Target } from 'lucide-react';
+const demos = [
+  { href: '/demos/landing-gasfiter', icon: Target, type: 'Landing page', title: 'Gasfitería urgente', text: 'Página de conversión directa para recibir llamadas y WhatsApp.' },
+  { href: '/demos/corporativo-electricista', icon: BriefcaseBusiness, type: 'Sitio corporativo', title: 'Empresa eléctrica', text: 'Web institucional con servicios, seguridad, equipo y cobertura.' },
+  { href: '/demos/micrositio-cerrajero', icon: PanelsTopLeft, type: 'Micrositio', title: 'Cerrajero 24/7', text: 'Sitio compacto para un servicio específico y urgente.' },
+  { href: '/demos/tienda-online', icon: ShoppingCart, type: 'Tienda online', title: 'Ferretería Express', text: 'Catálogo de productos, categorías y compra por WhatsApp.' },
+  { href: '/demos/blog-magazine', icon: Newspaper, type: 'Blog / Magazine', title: 'Consejos del Hogar', text: 'Contenido educativo para atraer tráfico orgánico y confianza.' },
+  { href: '/demos/portfolio-techumbres', icon: FileText, type: 'Portfolio', title: 'Techumbres y trabajos', text: 'Galería de proyectos para mostrar experiencia y resultados.' },
+  { href: '/demos/app-web-agenda', icon: LayoutDashboard, type: 'Aplicación web', title: 'Agenda de servicios', text: 'Mockup de panel para agendamiento, estados y cotizaciones.' },
+];
+---
+<BaseLayout title="Demos de páginas web | ImpulsoLocal" description="Demos diferenciadas por tipo de página: landing, corporativo, micrositio, tienda online, blog, portfolio y aplicación web.">
+  <section class="bg-slate-950 py-24 text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <span class="inline-flex items-center gap-2 rounded-full bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-200"><Smartphone className="w-4 h-4" /> Demos reales por tipo de web</span>
+        <h1 class="mt-8 text-5xl font-black tracking-tight sm:text-6xl">Muestra ejemplos concretos antes de vender.</h1>
+        <p class="mt-6 text-xl leading-8 text-slate-300">Cada demo tiene una estética y estructura distinta para que el cliente entienda qué tipo de página se adapta mejor a su necesidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {demos.map((demo) => {
+          const Icon = demo.icon;
+          return (
+            <a href={demo.href} class="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <div class="flex items-center justify-between gap-4">
+                <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-linear-to-br from-blue-700 to-teal-600 text-white"><Icon className="w-7 h-7" /></div>
+                <span class="rounded-full bg-slate-100 px-3 py-1 text-xs font-black uppercase tracking-wider text-slate-600">{demo.type}</span>
+              </div>
+              <h2 class="mt-7 text-2xl font-black text-slate-950">{demo.title}</h2>
+              <p class="mt-3 text-slate-600 leading-7">{demo.text}</p>
+              <span class="mt-6 inline-flex items-center gap-2 font-black text-blue-700">Ver demo <ArrowRight className="w-5 h-5 transition group-hover:translate-x-1" /></span>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

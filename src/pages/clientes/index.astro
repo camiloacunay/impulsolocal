@@ -1,0 +1,116 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { SITE } from '@config/site';
+import { ArrowRight, BadgeCheck, ExternalLink, MessageCircle, MousePointerClick, Search, ShieldCheck, Star } from 'lucide-react';
+
+const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent('Hola, vi los clientes reales de ImpulsoLocal y quiero cotizar una página web profesional')}`;
+const clients = [
+  {
+    name: 'ServiGasfíter',
+    category: 'Gasfitería a domicilio',
+    location: 'Santiago y comunas cercanas',
+    url: '/clientes/servigasfiter/',
+    image: '/clientes/servigasfiter/assets/og-image.png',
+    accent: 'from-cyan-500 to-blue-700',
+    description: 'Página profesional para captar solicitudes por fugas, destapes, calefont, grifería y emergencias sanitarias.',
+    features: ['WhatsApp visible', 'Servicios claros', 'Precios referenciales', 'SEO local'],
+  },
+  {
+    name: 'FullCerrajería 24Hrs',
+    category: 'Cerrajería 24 horas',
+    location: 'Viña del Mar, Valparaíso y alrededores',
+    url: '/clientes/fullcerrajeria24hrs/',
+    image: '/clientes/fullcerrajeria24hrs/assets/img/og-image.jpg',
+    accent: 'from-yellow-400 to-red-600',
+    description: 'Web enfocada en atención urgente: aperturas, instalaciones, vehículos, cajas fuertes, llaves con chip y protecciones.',
+    features: ['Diseño mobile-first', 'Urgencias 24/7', 'Zonas de atención', 'Botones de contacto'],
+  },
+];
+---
+
+<BaseLayout title="Clientes reales | ImpulsoLocal" description="Páginas reales creadas para clientes de servicios locales que usan ImpulsoLocal para mejorar su presencia digital y captar consultas.">
+  <section class="relative overflow-hidden bg-slate-950 py-24 text-white">
+    <div class="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_top_left,_#0ea5e9,_transparent_35%),radial-gradient(circle_at_bottom_right,_#16a34a,_transparent_38%)]"></div>
+    <div class="container relative mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl">
+        <span class="inline-flex items-center gap-2 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-4 py-2 text-sm font-black text-cyan-200">
+          <Star className="h-4 w-4" /> Clientes reales
+        </span>
+        <h1 class="mt-8 text-5xl font-black tracking-tight sm:text-6xl">Páginas publicadas para negocios que ya están usando nuestros servicios.</h1>
+        <p class="mt-6 text-xl leading-8 text-slate-300">Estos ejemplos no son solo demos: son sitios reales preparados para mostrar servicios, generar confianza y convertir visitas en consultas por WhatsApp o llamada.</p>
+        <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-7 py-4 text-base font-black text-slate-950 shadow-xl transition hover:-translate-y-0.5 hover:bg-cyan-50">
+            Quiero una página así <MessageCircle className="h-5 w-5" />
+          </a>
+          <a href="/demos" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/10 px-7 py-4 text-base font-black text-white backdrop-blur transition hover:bg-white/20">
+            Ver otros tipos de web <ArrowRight className="h-5 w-5" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="text-sm font-black uppercase tracking-[0.25em] text-blue-700">Casos publicados</span>
+        <h2 class="mt-4 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Cada cliente tiene una página con identidad propia.</h2>
+        <p class="mt-6 text-lg leading-8 text-slate-600">Adaptamos estructura, colores, mensaje y llamados a la acción según el rubro. No usamos una sola plantilla igual para todos.</p>
+      </div>
+
+      <div class="mt-16 grid gap-10 lg:grid-cols-2">
+        {clients.map((client) => (
+          <article class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-2xl">
+            <a href={client.url} target="_blank" rel="noopener" class="group block">
+              <div class="relative h-72 overflow-hidden bg-slate-100">
+                <img src={client.image} alt={`Vista previa de ${client.name}`} class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
+                <div class={`absolute left-6 top-6 rounded-full bg-linear-to-r ${client.accent} px-4 py-2 text-xs font-black uppercase tracking-wider text-white shadow-lg`}>{client.category}</div>
+              </div>
+            </a>
+            <div class="p-8">
+              <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div>
+                  <h3 class="text-3xl font-black text-slate-950">{client.name}</h3>
+                  <p class="mt-2 text-sm font-bold uppercase tracking-wider text-slate-500">{client.location}</p>
+                </div>
+                <a href={client.url} target="_blank" rel="noopener" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 py-3 text-sm font-black text-white transition hover:bg-blue-800">
+                  Abrir web <ExternalLink className="h-4 w-4" />
+                </a>
+              </div>
+              <p class="mt-6 text-lg leading-8 text-slate-600">{client.description}</p>
+              <div class="mt-7 grid gap-3 sm:grid-cols-2">
+                {client.features.map((feature) => (
+                  <span class="inline-flex items-center gap-2 rounded-2xl bg-slate-50 px-4 py-3 text-sm font-bold text-slate-700 ring-1 ring-slate-200">
+                    <BadgeCheck className="h-4 w-4 text-emerald-600" /> {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-slate-50 py-24">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-8 lg:grid-cols-3">
+        <div class="rounded-3xl bg-slate-950 p-8 text-white">
+          <MousePointerClick className="h-9 w-9 text-cyan-300" />
+          <h3 class="mt-6 text-2xl font-black">Página pensada para contacto</h3>
+          <p class="mt-4 leading-7 text-slate-300">Botones de WhatsApp, llamada, servicios visibles y estructura simple para que el usuario cotice rápido.</p>
+        </div>
+        <div class="rounded-3xl bg-blue-700 p-8 text-white">
+          <Search className="h-9 w-9 text-cyan-200" />
+          <h3 class="mt-6 text-2xl font-black">Lista para campañas locales</h3>
+          <p class="mt-4 leading-7 text-blue-100">Contenido alineado con búsquedas como “gasfíter urgente”, “cerrajero 24 horas” o servicios por ciudad.</p>
+        </div>
+        <div class="rounded-3xl bg-teal-700 p-8 text-white">
+          <ShieldCheck className="h-9 w-9 text-cyan-100" />
+          <h3 class="mt-6 text-2xl font-black">Más confianza comercial</h3>
+          <p class="mt-4 leading-7 text-teal-50">Una web profesional mejora la percepción del negocio frente a publicaciones sueltas en Marketplace o redes sociales.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

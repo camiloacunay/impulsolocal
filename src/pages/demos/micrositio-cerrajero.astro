@@ -1,0 +1,31 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Car, KeyRound, LockKeyhole, MessageCircle, Shield, Timer } from 'lucide-react';
+---
+<BaseLayout title="Demo micrositio cerrajero | ImpulsoLocal" description="Demo de micrositio para cerrajero 24 horas.">
+  <section class="bg-zinc-950 py-10 text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-5xl overflow-hidden rounded-[2rem] border border-yellow-400/20 bg-zinc-900 shadow-2xl">
+        <div class="grid lg:grid-cols-[0.8fr_1.2fr]">
+          <aside class="bg-yellow-400 p-8 text-zinc-950">
+            <div class="flex h-16 w-16 items-center justify-center rounded-2xl bg-zinc-950 text-yellow-400"><KeyRound className="w-9 h-9" /></div>
+            <h1 class="mt-8 text-5xl font-black">LlaveExpress</h1>
+            <p class="mt-4 text-xl font-bold">Cerrajero 24/7 en Chillán</p>
+            <div class="mt-10 space-y-4 font-black"><p>✓ Apertura de puertas</p><p>✓ Autos y chapas</p><p>✓ Cambio de cerraduras</p><p>✓ Emergencias</p></div>
+          </aside>
+          <main class="p-8 md:p-12">
+            <span class="rounded-full bg-yellow-400/10 px-4 py-2 text-sm font-black text-yellow-300">Micrositio de servicio urgente</span>
+            <h2 class="mt-8 text-5xl font-black tracking-tight">¿Quedaste fuera de casa o del auto?</h2>
+            <p class="mt-5 text-lg text-zinc-300">Atención rápida por WhatsApp, disponibilidad 24 horas y cobertura en Chillán y alrededores.</p>
+            <a href="#" class="mt-8 inline-flex items-center gap-2 rounded-xl bg-yellow-400 px-7 py-4 font-black text-zinc-950 hover:bg-yellow-300"><MessageCircle className="w-5 h-5" /> Pedir ayuda ahora</a>
+            <div class="mt-12 grid gap-4 sm:grid-cols-3">
+              <div class="rounded-2xl bg-white/5 p-5"><Timer className="w-8 h-8 text-yellow-300" /><h3 class="mt-4 font-black">Rápido</h3></div>
+              <div class="rounded-2xl bg-white/5 p-5"><Car className="w-8 h-8 text-yellow-300" /><h3 class="mt-4 font-black">Vehículos</h3></div>
+              <div class="rounded-2xl bg-white/5 p-5"><Shield className="w-8 h-8 text-yellow-300" /><h3 class="mt-4 font-black">Seguro</h3></div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

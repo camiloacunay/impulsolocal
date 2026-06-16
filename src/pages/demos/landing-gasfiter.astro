@@ -1,0 +1,43 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Droplets, MapPin, MessageCircle, Phone, ShieldCheck, Wrench } from 'lucide-react';
+---
+<BaseLayout title="Demo landing page gasfitería | ImpulsoLocal" description="Demo de landing page para gasfitería urgente.">
+  <section class="min-h-screen bg-sky-950 text-white">
+    <div class="container mx-auto grid min-h-screen grid-cols-1 items-center gap-12 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div>
+        <div class="inline-flex items-center gap-3 rounded-full bg-sky-400/15 px-4 py-2 text-sm font-black text-sky-200"><Droplets className="w-5 h-5" /> AquaFix Valparaíso</div>
+        <h1 class="mt-8 text-5xl font-black tracking-tight sm:text-7xl">Gasfíter urgente en Valparaíso</h1>
+        <p class="mt-6 text-xl leading-8 text-sky-100">Fugas de agua, destapes, calefont, lavaplatos y emergencias domiciliarias. Atención rápida por WhatsApp.</p>
+        <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <a href="#" class="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-500 px-7 py-4 font-black text-white hover:bg-emerald-600"><MessageCircle className="w-5 h-5" /> WhatsApp</a>
+          <a href="#" class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 px-7 py-4 font-black text-white hover:bg-white/10"><Phone className="w-5 h-5" /> Llamar ahora</a>
+        </div>
+        <div class="mt-10 grid gap-4 sm:grid-cols-3">
+          <div class="rounded-2xl bg-white/10 p-4"><b>24/7</b><p class="text-sm text-sky-100">Emergencias</p></div>
+          <div class="rounded-2xl bg-white/10 p-4"><b>+10 comunas</b><p class="text-sm text-sky-100">Cobertura</p></div>
+          <div class="rounded-2xl bg-white/10 p-4"><b>Cotiza</b><p class="text-sm text-sky-100">Por WhatsApp</p></div>
+        </div>
+      </div>
+      <div class="rounded-[2rem] bg-white p-6 text-slate-950 shadow-2xl">
+        <h2 class="text-2xl font-black">Solicita atención</h2>
+        <p class="mt-2 text-slate-600">Completa los datos y recibe una respuesta rápida.</p>
+        <div class="mt-6 space-y-4">
+          <input class="w-full rounded-xl border border-slate-200 px-4 py-3" placeholder="Nombre" />
+          <input class="w-full rounded-xl border border-slate-200 px-4 py-3" placeholder="Comuna" />
+          <select class="w-full rounded-xl border border-slate-200 px-4 py-3"><option>Tipo de problema</option><option>Fuga de agua</option><option>Destape</option><option>Calefont</option></select>
+          <button class="w-full rounded-xl bg-sky-700 px-6 py-4 font-black text-white hover:bg-sky-800">Enviar solicitud</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="bg-white py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="rounded-3xl border p-8"><Wrench className="w-9 h-9 text-sky-700" /><h3 class="mt-5 text-xl font-black">Servicios claros</h3><p class="mt-3 text-slate-600">Destapes, fugas, calefont y reparaciones sanitarias.</p></div>
+        <div class="rounded-3xl border p-8"><MapPin className="w-9 h-9 text-sky-700" /><h3 class="mt-5 text-xl font-black">Zonas de atención</h3><p class="mt-3 text-slate-600">Valparaíso, Viña del Mar, Placilla y alrededores.</p></div>
+        <div class="rounded-3xl border p-8"><ShieldCheck className="w-9 h-9 text-sky-700" /><h3 class="mt-5 text-xl font-black">Confianza</h3><p class="mt-3 text-slate-600">Precios informados antes de comenzar el trabajo.</p></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { Drill, Filter, Hammer, PackageCheck, Search, ShoppingCart, Star } from 'lucide-react';
+const products = [
+  { name: 'Kit herramientas básico', price: '$24.990', icon: Hammer },
+  { name: 'Taladro inalámbrico', price: '$59.990', icon: Drill },
+  { name: 'Pack seguridad hogar', price: '$19.990', icon: PackageCheck },
+];
+---
+<BaseLayout title="Demo tienda online | ImpulsoLocal" description="Demo de tienda online para venta de productos locales.">
+  <section class="bg-stone-100 text-stone-950">
+    <div class="container mx-auto px-4 py-8 sm:px-6 lg:px-8">
+      <header class="flex flex-col gap-4 rounded-3xl bg-white p-5 shadow-sm md:flex-row md:items-center md:justify-between">
+        <div class="flex items-center gap-3"><div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-600 text-white"><ShoppingCart className="w-7 h-7" /></div><b class="text-2xl">FerreClick</b></div>
+        <div class="flex flex-1 items-center gap-3 rounded-2xl bg-stone-100 px-4 py-3 md:max-w-xl"><Search className="w-5 h-5 text-stone-500" /><input class="w-full bg-transparent outline-none" placeholder="Buscar herramientas, seguridad o materiales" /></div>
+        <a href="#" class="rounded-2xl bg-stone-950 px-6 py-3 font-black text-white">Carrito</a>
+      </header>
+    </div>
+    <div class="container mx-auto grid gap-10 px-4 pb-24 pt-8 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 lg:items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full bg-orange-100 px-4 py-2 text-sm font-black text-orange-700"><Filter className="w-4 h-4" /> Tienda online</span>
+        <h1 class="mt-6 text-5xl font-black tracking-tight sm:text-7xl">Productos para hogar, reparación y seguridad</h1>
+        <p class="mt-6 text-xl leading-8 text-stone-700">Catálogo con categorías, productos destacados y compra rápida por WhatsApp o formulario.</p>
+      </div>
+      <div class="grid gap-5 md:grid-cols-3">
+        {products.map((product) => {
+          const Icon = product.icon;
+          return (
+            <article class="rounded-[2rem] bg-white p-6 shadow-xl">
+              <div class="flex h-20 w-20 items-center justify-center rounded-3xl bg-orange-100 text-orange-700"><Icon className="w-10 h-10" /></div>
+              <h2 class="mt-6 text-xl font-black">{product.name}</h2>
+              <div class="mt-4 flex items-center gap-1 text-yellow-500"><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /><Star className="w-4 h-4 fill-current" /></div>
+              <p class="mt-4 text-3xl font-black text-orange-700">{product.price}</p>
+              <button class="mt-5 w-full rounded-xl bg-stone-950 px-4 py-3 font-black text-white">Comprar</button>
+            </article>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

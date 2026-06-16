@@ -1,0 +1,42 @@
+---
+import BaseLayout from '@layouts/BaseLayout.astro';
+import { BadgeCheck, Building2, Cable, HardHat, Lightbulb, ShieldCheck, Zap } from 'lucide-react';
+---
+<BaseLayout title="Demo sitio corporativo electricista | ImpulsoLocal" description="Demo de sitio web corporativo para empresa eléctrica.">
+  <section class="bg-amber-50">
+    <div class="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
+      <nav class="flex items-center justify-between rounded-2xl bg-slate-950 px-6 py-4 text-white">
+        <div class="flex items-center gap-3"><div class="flex h-11 w-11 items-center justify-center rounded-xl bg-amber-400 text-slate-950"><Zap className="w-6 h-6" /></div><b class="text-xl">VoltPro Rancagua</b></div>
+        <a href="#" class="rounded-xl bg-amber-400 px-5 py-3 font-black text-slate-950">Cotizar</a>
+      </nav>
+    </div>
+    <div class="container mx-auto grid gap-12 px-4 pb-24 pt-8 sm:px-6 lg:grid-cols-2 lg:px-8 lg:items-center">
+      <div>
+        <span class="text-sm font-black uppercase tracking-[0.25em] text-amber-700">Sitio web corporativo</span>
+        <h1 class="mt-5 text-5xl font-black tracking-tight text-slate-950 sm:text-7xl">Soluciones eléctricas para hogares y empresas</h1>
+        <p class="mt-6 text-xl leading-8 text-slate-700">Instalaciones, mantenciones, tableros eléctricos, iluminación LED y urgencias en Rancagua.</p>
+        <div class="mt-8 flex gap-4"><a href="#" class="rounded-xl bg-slate-950 px-7 py-4 font-black text-white">Agendar visita</a><a href="#servicios" class="rounded-xl border border-slate-300 px-7 py-4 font-black text-slate-950">Ver servicios</a></div>
+      </div>
+      <div class="rounded-[2rem] bg-slate-950 p-8 text-white shadow-2xl">
+        <Building2 className="w-14 h-14 text-amber-300" />
+        <h2 class="mt-6 text-3xl font-black">Empresa autorizada para proyectos residenciales y comerciales</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2">
+          <div class="rounded-2xl bg-white/10 p-5"><b>Tableros</b><p class="text-sm text-slate-300">Instalación y reparación</p></div>
+          <div class="rounded-2xl bg-white/10 p-5"><b>LED</b><p class="text-sm text-slate-300">Ahorro energético</p></div>
+          <div class="rounded-2xl bg-white/10 p-5"><b>24 hrs</b><p class="text-sm text-slate-300">Urgencias</p></div>
+          <div class="rounded-2xl bg-white/10 p-5"><b>Garantía</b><p class="text-sm text-slate-300">Trabajo seguro</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="servicios" class="bg-white py-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid gap-6 md:grid-cols-4">
+        <div class="rounded-3xl bg-amber-50 p-7"><Cable className="w-9 h-9 text-amber-700" /><h3 class="mt-5 font-black">Instalaciones</h3><p class="mt-2 text-sm text-slate-600">Enchufes, cableado y ampliaciones.</p></div>
+        <div class="rounded-3xl bg-amber-50 p-7"><ShieldCheck className="w-9 h-9 text-amber-700" /><h3 class="mt-5 font-black">Mantención</h3><p class="mt-2 text-sm text-slate-600">Prevención para empresas.</p></div>
+        <div class="rounded-3xl bg-amber-50 p-7"><Lightbulb className="w-9 h-9 text-amber-700" /><h3 class="mt-5 font-black">Iluminación</h3><p class="mt-2 text-sm text-slate-600">LED y ahorro energético.</p></div>
+        <div class="rounded-3xl bg-amber-50 p-7"><HardHat className="w-9 h-9 text-amber-700" /><h3 class="mt-5 font-black">Proyectos</h3><p class="mt-2 text-sm text-slate-600">Obras menores y tableros.</p></div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
