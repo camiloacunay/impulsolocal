@@ -4,8 +4,7 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://camiloacunay.github.io',
-  base: '/impulsolocal/',
+  site: 'https://impulsoweblocal.cl',
   integrations: [react()],
   vite: {
     plugins: [tailwindcss()],
