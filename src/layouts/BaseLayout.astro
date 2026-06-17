@@ -16,25 +16,43 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
 <!doctype html>
 <html lang="es">
   <head>
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18247724039"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-18247724039');
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
     <meta name="generator" content={Astro.generator} />
+
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
+
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
   </head>
+
   <body class="flex min-h-screen flex-col bg-white font-sans text-neutral-900 antialiased">
     <Header currentPathname={currentPathname} />
+
     <main class="flex-1">
       <slot />
     </main>
+
     <Footer />
   </body>
 </html>
