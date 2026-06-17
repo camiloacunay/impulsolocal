@@ -16,7 +16,7 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
 <!doctype html>
 <html lang="es">
   <head>
-    <!-- Google tag (gtag.js) - Google Ads -->
+    <!-- Google tag (gtag.js) - Google Ads + Google Analytics GA4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18247724039"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
@@ -24,6 +24,7 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
       gtag('js', new Date());
 
       gtag('config', 'AW-18247724039');
+      gtag('config', 'G-L7QHYM4WQD');
     </script>
 
     <meta charset="UTF-8" />
