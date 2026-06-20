@@ -23,7 +23,10 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
+      /* Google Ads */
       gtag('config', 'AW-18247724039');
+
+      /* Google Analytics 4 */
       gtag('config', 'G-L7QHYM4WQD');
     </script>
 
@@ -55,5 +58,96 @@ const { title = SITE.title, description = SITE.description } = Astro.props;
     </main>
 
     <Footer />
+
+    <!-- Eventos personalizados para medir conversiones en GA4 -->
+    <script is:inline>
+      document.addEventListener("DOMContentLoaded", () => {
+        function enviarEventoGA(nombreEvento, parametros = {}) {
+          if (typeof gtag === "function") {
+            gtag("event", nombreEvento, {
+              event_category: "conversion",
+              ...parametros,
+              transport_type: "beacon"
+            });
+          }
+        }
+
+        function obtenerTexto(link) {
+          return link.textContent ? link.textContent.trim().replace(/\s+/g, " ") : "";
+        }
+
+        function esWhatsapp(link) {
+          return link.href.includes("wa.me") || link.href.includes("api.whatsapp.com");
+        }
+
+        function esTelefono(link) {
+          return link.href.startsWith("tel:");
+        }
+
+        // Clics en WhatsApp
+        document
+          .querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]')
+          .forEach((link) => {
+            link.addEventListener("click", () => {
+              enviarEventoGA("click_whatsapp", {
+                event_label: link.href,
+                click_text: obtenerTexto(link),
+                page_path: window.location.pathname
+              });
+            });
+          });
+
+        // Clics en teléfono
+        document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+          link.addEventListener("click", () => {
+            enviarEventoGA("click_llamada", {
+              event_label: link.href,
+              click_text: obtenerTexto(link),
+              page_path: window.location.pathname
+            });
+          });
+        });
+
+        // Clics en botones de cotización/contacto
+        document
+          .querySelectorAll('a[href="#contacto"], a[href*="contacto"], a[href*="cotizar"], .btn-cotizar')
+          .forEach((link) => {
+            link.addEventListener("click", () => {
+              if (esWhatsapp(link) || esTelefono(link)) return;
+
+              enviarEventoGA("click_cotizar", {
+                event_label: link.href || "boton_cotizar",
+                click_text: obtenerTexto(link),
+                page_path: window.location.pathname
+              });
+            });
+          });
+
+        // Clics en demos
+        document
+          .querySelectorAll('a[href*="/demos"], a[href*="demo"], .demo-card a')
+          .forEach((link) => {
+            link.addEventListener("click", () => {
+              if (esWhatsapp(link) || esTelefono(link)) return;
+
+              enviarEventoGA("click_demo", {
+                event_label: link.href,
+                click_text: obtenerTexto(link),
+                page_path: window.location.pathname
+              });
+            });
+          });
+
+        // Envíos de formularios
+        document.querySelectorAll("form").forEach((form) => {
+          form.addEventListener("submit", () => {
+            enviarEventoGA("formulario_contacto", {
+              event_label: form.id || "formulario_sin_id",
+              page_path: window.location.pathname
+            });
+          });
+        });
+      });
+    </script>
   </body>
 </html>
