@@ -56,17 +56,17 @@ const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
       })}
     </div>
 
-    <div class="flex items-center gap-2 lg:gap-3">
+    <div class="flex items-center gap-3">
       <a
         href={phoneHref}
         aria-label={`Llamar a Impulso Web Local ${phoneDisplay}`}
-        class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-slate-950 text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-lg sm:w-auto sm:px-4 sm:py-2.5"
+        class="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-slate-950 px-5 text-sm font-black leading-none text-white shadow-md transition-all hover:-translate-y-0.5 hover:bg-slate-800 hover:shadow-lg"
       >
-        <Phone className="h-4 w-4" />
-        <span class="ml-2 hidden text-sm font-bold sm:inline xl:hidden">
+        <Phone className="h-4 w-4 shrink-0" />
+        <span class="hidden sm:inline xl:hidden">
           Llamar
         </span>
-        <span class="ml-2 hidden text-sm font-bold xl:inline">
+        <span class="hidden xl:inline">
           {phoneDisplay}
         </span>
       </a>
@@ -75,10 +75,10 @@ const whatsappUrl = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
         href={whatsappUrl}
         target="_blank"
         rel="noopener"
-        class="hidden items-center gap-2 rounded-xl bg-linear-to-r from-blue-700 to-teal-600 px-6 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:-translate-y-0.5 hover:from-blue-800 hover:to-teal-700 hover:shadow-lg lg:inline-flex"
+        class="hidden h-12 items-center justify-center gap-2 rounded-xl bg-linear-to-r from-blue-700 to-teal-600 px-6 text-sm font-black leading-none text-white shadow-md transition-all hover:-translate-y-0.5 hover:from-blue-800 hover:to-teal-700 hover:shadow-lg lg:inline-flex"
       >
         <span>Cotizar por WhatsApp</span>
-        <MessageCircle className="h-4 w-4" />
+        <MessageCircle className="h-4 w-4 shrink-0" />
       </a>
 
       <MobileMenu client:idle />
